@@ -155,26 +155,54 @@ console.log("Su ganancia semanal es : "+ganancia);
     Introduzca el año de nacimiento: 2005
     Tienes 15 años. Podrás conducir después de 3 años.
 */
-    
+/*    const today=new Date();
+    const anio=parseInt(prompt("Introduzca el año de nacimiento:"));
+    const anioToday=today.getFullYear();
+    const edadActual=anioToday-anio;
+    const edadF=18-edadActual;
+
+    document.write("<h1>EDAD PARA CONDUCIR</h1>");
+    document.write("<p>Introduzca el año de nacimiento:</p>"+edadActual+"<br>");
+    if(edadActual>=18){
+        document.write("Tienes "+edadActual+".Tienes la edad suficiente para conducir.");
+        console.log("Tienes "+edadActual+".Tienes la edad suficiente para conducir.");
+    }else{
+        document.write("Tienes "+edadActual+".Podrás conducir después de "+edadF+" años")
+        console.log("Tienes "+edadActual+".Podrás conducir después de "+edadF+" años");
+    }
+    console.log(anioToday);
+*/
 /*
     14.Escriba un script que solicite por prompt al usuario que ingrese el número de años. Calcular el número de segundos que puede vivir una persona. Supongamos que alguien vive solo cien años
 
     Ingrese el número de años de vida: 100
     Viviste 3153600000 segundos.
 */
-
+    /*const numAnios=parseInt(prompt("Ingrese el numero de años de vida"));
+    const seg=numAnios*365*24*60*60;
+    document.write("<h1>SEGUNDOS DE VIDA</h1>");
+    document.write("<p>Ingrese el número de años de vida:</p>"+numAnios);
+    document.write("<h2>Viviste "+seg+" segundos.</h2>");
+    console.log("Vivistes "+seg+" segundos.");
+    */
 /*
     15.Cree un formato de hora legible por humanos usando el objeto Date.
 */
     const ahora=new Date();
+    const year=ahora.getFullYear();
+    const month=ahora.getMonth()+1;
+    const date=ahora.getDate();
+    const hour=ahora.getHours();
+    const minutes=ahora.getMinutes();
     /*
         i.YYYY-MM-DD HH:mm
     */
-
+        console.log(`${year}-${month}-${date} ${hour}:${minutes}`);
     /*
         ii.DD-MM-YYYY HH:mm
     */
-
+        console.log(`${date}-${month}-${year} ${hour}:${minutes}`);
     /*
         iii.DD/MM/YYYY HH:mm
     */
+        console.log(`${date}/${month}/${year} ${hour}:${minutes}`);
