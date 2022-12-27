@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Area del Circulo</title>
+</head>
+<body>
+    <script>
+        const radio=parseFloat(prompt("Ingrese el radio : "));
+        const areaC=(Math.PI*Math.pow(radio,2)).toFixed(2);
+        const longitudC=(2*Math.PI*radio).toFixed(2);
+        document.write("<h1>CALCULO DEL AREA y DE LA LONGITUDO DE LA CIRCUFERENCIA</h1>");
+        document.write("<p>Ingrese el radio de la circunferencia :</p>"+radio);
+        document.write("<h2>El area de la circunferencia es :</h2>"+areaC);
+        document.write("<h2>La longitud de la circunferencia es :</h2>"+longitudC);
+        console.log("El area de la circunferencia es : "+areaC);
+        console.log("La longitud de la circunferencia es : "+longitudC);
+    </script>
+</body>
+</html>
