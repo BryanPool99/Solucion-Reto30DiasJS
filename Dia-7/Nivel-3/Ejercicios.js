@@ -151,7 +151,26 @@ console.log(generateColors("rgb", 1));
 /*
     8.Llame a su función shuffleArray, toma un array como parámetro y devuelve un array mezclada
 */
-
+function idxRandom(n) {
+    const arr=Array(n);
+    for (let i = 0; i < n; i++) {
+        let numR=Math.floor(Math.random()*n);
+        arr[i]=numR;
+    }
+    if(unique(arr)) return arr;
+    return idxRandom(n);     
+}
+console.log(idxRandom(5));
+function shuffleArray(arr) {
+    const newArr=[]
+    const idxArray=idxRandom(arr.length);
+    for (let i = 0; i < arr.length; i++) {
+        newArr.push(arr[idxArray[i]])
+    }
+    return newArr;
+}
+const ar=[1,2,3,4,5,8,9,false];    
+console.log(shuffleArray(ar));
 /*
     9.Llame a su función factorial, toma un número entero como parámetro y devuelve un factorial del número.
 */
@@ -301,23 +320,22 @@ console.log(isSameType(A));
     18.El nombre de las variables de JavaScript no admite caracteres o símbolos especiales, excepto $ o _. Escriba una función isValidVariable que verifique si una variable es válida o inválida.
 */
 function isValidVariable(str) {
-        for (let i = 0; i < str.length; i++) {
-            if(
-                (str[i].charCodeAt()>=48 && str[i].charCodeAt()<=57 ||
-                (str[i].charCodeAt()>=65 && str[i].charCodeAt()<=90) ||
-                (str[i].charCodeAt()>=97 && str[i].charCodeAt()<=122)) ||
-                str[i].charCodeAt()==36 ||  str[i].charCodeAt()==95 
-            ) {
-                console.log(true);
-                return "es una variable valida";
-            }
-            else{
-                console.log(false);
-                return "es una variable invalida";
-            }
+    if (!/^[a-zA-Z_$]/.test(str)) {
+        console.log("aqio");
+        return false;
+    }
+    for (let i = 0; i < str.length; i++) {
+        // Si encuentra un carácter que no es una letra, un dígito o un guión bajo o un signo de dólar, devuelva false
+        if (!/[a-zA-Z0-9_$]/.test(str[i])) {
+            console.log("aqio");
+            return false;
         }
+    }
+    console.log("aqio");
+    return true
 }
-console.log(isValidVariable("#"));//falta
+console.log(isValidVariable("name"));
+console.log(isValidVariable("#invalido"));
 /*
     19.Escriba una función que devuelva un array de siete números aleatorios en un rango de 0-9. Todos los números deben ser únicos.
 
