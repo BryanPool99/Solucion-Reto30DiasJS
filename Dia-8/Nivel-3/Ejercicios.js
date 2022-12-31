@@ -41,8 +41,8 @@ const users = [
     },
   ];
   
-  const products = [
-    {
+const products = [
+  {
       _id: "eedfcf",
       name: "mobile phone",
       description: "Huawei Honor",
@@ -52,24 +52,24 @@ const users = [
         { userId: "zwf8md", rate: 4.5 },
       ],
       likes: [],
-    },
-    {
+  },
+  {
       _id: "aegfal",
       name: "Laptop",
       description: "MacPro: System Darwin",
       price: 2500,
       ratings: [],
       likes: ["fg12cy"],
-    },
-    {
+  },
+  {
       _id: "hedfcg",
       name: "TV",
       description: "Smart TV:Procaster",
       price: 400,
       ratings: [{ userId: "fg12cy", rate: 5 }],
       likes: ["fg12cy"],
-    },
-  ];
+  },
+];
 /*
     1.Crea un objeto literal llamado personAccount. Tiene las propiedades firstName, lastName, incomes, expenses y tiene los metodos totalIncome, totalExpense, accountInfo,addIncome, addExpense y accountBalance. Incomes es un conjunto de ingresos y su descripción y expenses es un conjunto de ingresos y su descripción.
 */
@@ -145,11 +145,61 @@ console.log(personAccount);
     /*
         a.Crear una función llamada rateProduct que califique el producto
     */
-
+        const objP=Object.values(products);
+        function rateProduct(name,userId,rate) {
+            for (const item of objP) {
+              if(item.name==name){
+                  item.ratings.push({
+                      "userId":userId,
+                      "rate":rate
+                  })
+                  return objP
+              }
+            }
+            return "El nombre del producto "+name+" no esta disponible";
+        }
+        console.log(rateProduct("mobile phone","prueba",10));
+        console.log(rateProduct("TV","prueba2",10));
     /*
         b.Crear una función llamada averageRating que calcule la valoración media de un producto
     */
-
+        function averageRating(name) {
+          for (const item of objP) {
+            if(item.name==name){
+              const rate=Object.values(item.ratings);
+              let sum=0,cont=0;
+              for (const i of rate) {
+                sum+=i.rate;
+                cont++;
+              }
+              if(cont==0)return "El producto "+name+ " no tiene ratings para realizar el promedio";
+              let prom=sum/cont;
+              return "El promedio de los ratings del producto "+name+ " es: "+prom;
+            } 
+          }
+          return "El nombre del producto "+name+" no esta disponible";
+        }
+        console.log(averageRating("TV"));
 /*
     4.Crear una función llamada likeProduct. Esta función ayuda a dar un like al producto. Si no le gusta eliminar el like y si le gusta darle like
 */
+    function likeProduct(nameP,userId,isLiked) {
+      for (const item of objP) {
+        if(item.name==nameP){
+            if(isLiked){
+              item.likes.push(userId);
+            }
+            else{
+              idx=item.likes.indexOf(userId);
+              item.likes.splice(idx,1)
+            }
+            return objP;
+        }
+      }
+      return "El nombre del producto "+nameP+" no esta disponible";
+    }
+    console.log(likeProduct("TV","prueba2",true));
+    console.log(likeProduct("TV","nueva prueba",true));
+    console.log(likeProduct("TV","prueba2",false));
+    console.log(likeProduct("TV","prueba2",true));
+    console.log(likeProduct("TV","nueva prueba",false));
