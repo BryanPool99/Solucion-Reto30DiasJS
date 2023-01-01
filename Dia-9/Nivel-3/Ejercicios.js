@@ -2228,9 +2228,10 @@ function CountLanguages(arr) {
 const countries=CountLanguages(countries_data);
 function mostSpokenLanguages(arr,n) {
     let arrSorted=arr.sort((a,b)=>b.count-a.count);
-    return arrSorted.filter((country,idx,arr)=>idx<n);
+    return arrSorted.slice(0,n);
 }
-console.log(mostSpokenLanguages(countries,5));
+//console.log(mostSpokenLanguages(countries, 10));
+//console.log(mostSpokenLanguages(countries, 3))
 /*
     3.Utilice el archivo countries_data.js para crear una función que cree los diez países más poblados.
     
@@ -2258,9 +2259,12 @@ console.log(mostSpokenLanguages(countries,5));
 
 */
 function mostPopulatedCountries(arr,n) {
-    
+    const arrsort=arr.sort((a,b)=>b.population-a.population);
+    const arrsortObj=arrsort.map((obj)=>({country:obj.name,population:obj.population}))
+    return arrsortObj.slice(0,n);
 }
-console.log(mostPopulatedCountries(countries_data,2));
+//console.log(mostPopulatedCountries(countries_data, 10));
+//console.log(mostPopulatedCountries(countries_data, 3))
 /*
     4. Intenta desarrollar un programa que calcule la medida de tendencia central de una muestra(mean, median, mode) y medida de la variabilidad(range, variance, standard deviation). Además de esas medidas, encuentre el mínimo, el máximo, el recuento, el porcentaje y la distribución de frecuencias de la muestra. Puede crear un objeto llamado estadísticas y crear todas las funciones que hacen cálculos estadísticos como método para el objeto estadísticas. Comprueba el resultado que aparece a continuación.
 
@@ -2292,3 +2296,75 @@ console.log(mostPopulatedCountries(countries_data,2));
     Standard Deviation:  4.2
     Frequency Distribution: [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
 */
+const statistics={
+  ages : [31, 26, 34, 37, 27, 26, 32, 32, 26, 27, 27, 24, 32, 33, 27, 25, 26, 38, 37, 31, 34, 24, 33, 29, 26],
+  count:function () {
+    return this.ages.length;
+  },
+  sum:function () {
+    return this.ages.reduce((acc,valA)=>(acc+valA),0);
+  },
+  min:function(){
+    return this.ages.sort((a,b)=>(a-b))[0]
+  },
+  max:function(){{
+    return this.ages.sort((a,b)=>b-a)[0]
+  }},
+  range:function(){
+    return this.max()-this.min();
+  },
+  mean:function(){
+    return Math.round(this.sum()/this.count());
+  },
+  median:function(){
+    const agesSort=statistics.ages.sort((a,b)=>(a-b));
+    let idx=Math.floor(agesSort.length/2);
+    console.log(agesSort);
+    if (this.count()%2==0) {
+      console.log(agesSort[idx],agesSort[idx+1]);
+      return (agesSort[idx]+agesSort[idx+1])/2;
+    } 
+    return agesSort[idx];
+  },
+  mode:function(){
+    const agesSet=new Set(this.ages);
+    const arrayAgesSet=[...agesSet];
+    let res={};
+    console.log(arrayAgesSet);
+    for (let i = 0; i < arrayAgesSet.length; i++) {
+      let age=this.ages[i];
+        if(res.hasOwnProperty(age)){
+          res[age]++;
+        }
+        else{
+            res[age]=1;
+        }
+    }
+    const rpta=Object.entries(res).map(([mode,count])=>({mode,count})).sort((a,b)=>b.count-a.count);
+    return rpta.slice(0,1);
+  },
+  var:function(){
+    let sum=0;
+    for (let i = 0; i < this.ages.length; i++) {
+      sum+=Math.pow((this.ages[i]-this.mean()),2);
+    }
+    return sum/this.count();
+  },
+  std:function(){
+    return (Math.sqrt(this.var())).toFixed(1);
+  },
+  freqDist:function(){
+    
+  }
+}
+console.log('Count:', statistics.count());
+console.log('Sum: ', statistics.sum());
+console.log('Min: ', statistics.min());
+console.log('Max: ', statistics.max()) // 38
+console.log('Range: ', statistics.range()); // 14
+console.log('Mean: ', statistics.mean()); // 30
+console.log('Median: ',statistics.median()); // 29
+console.log('Mode: ', statistics.mode()); // {'mode': 26, 'count': 5}
+console.log('Variance: ',statistics.var()); // 17.5
+console.log('Standard Deviation: ', statistics.std()); // 4.2
+console.log('Frequency Distribution: ',statistics.freqDist());//[(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
