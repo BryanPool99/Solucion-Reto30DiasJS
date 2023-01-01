@@ -226,9 +226,19 @@ console.log(categorizeCountries("land",countries));
 /*
     4.Cree una función que retorne un array de objetos, que es la letra y el número de veces que la letra usa para empezar el nombre de un país.
 */
-function arrObjCountries(letter) {
-    
+function CountLetterFirst(arr) {
+    let arrObj={};
+    for (let i = 0; i < arr.length; i++) {
+        let letraFirst=arr[i][0];
+        if(arrObj.hasOwnProperty(letraFirst)){
+            arrObj[letraFirst]++;
+        }else{
+            arrObj[letraFirst]=1;
+        }
+    }
+    return Object.entries(arrObj).map(([letra,count])=>({letra,count}));
 }
+console.log(CountLetterFirst(countries));
 /*
     5.Declara una función getFirstTenCountries y retorna un array de diez países. Utiliza diferente programación funcional para trabajar en el array countries.js.
 */
@@ -247,9 +257,9 @@ console.log(getLastTenCountries(countries));
     7.Encuentre qué letra se utiliza muchas veces como inicial de un nombre de país del array de países (ej. Finland, Fiji, France etc)
 */
 function letterMoreUsed(arr=[]) {
-    const firstLetterCountries=arr.map(country=>country[0]);
-    return firstLetterCountries.reduce(function(acc,firstLetterCountries){
-         if(firstLetterCountries=="A") return acc++;  
-    })
+    let firstLetter=CountLetterFirst(arr);
+    //una vez ya definido anteriormente la funcion para saber la cantidad de veces que se repiten las letras del abcedario lo unico que faltaria acer es ordenarlos d mayor a menor y busco del array en primer elemento.
+    firstLetter.sort((a,b)=>b.count-a.count);
+    return "Letra: "+firstLetter[0].letra+", Cantidad: "+firstLetter[0].count;
 }
 console.log(letterMoreUsed(countries));
