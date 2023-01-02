@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salario de un empleado</title>
+</head>
+<body>
+    <script>
+        const cantHoras=parseInt(prompt("Ingrese horas: "));
+        const pagoXHora=parseFloat(prompt("Introduce la tarifa por hora: "));
+        const ganancia=cantHoras*pagoXHora;
+        document.write("<h1>CALCULO DEL SALARIO DE UNA PERSONA</h1>");
+        document.write("<p>Ingrese horas :</p>"+cantHoras);
+        document.write("<p>Ingrese la tarifa por hora :</p>"+pagoXHora);
+        document.write("<h2>Su ganancia semanal es : </h2>"+ganancia)
+        console.log("Su ganancia semanal es : "+ganancia);
+    </script>
+</body>
+</html>
