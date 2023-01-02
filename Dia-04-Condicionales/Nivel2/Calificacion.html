@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calificacion de estudiantes</title>
+</head>
+<body>
+    <script>
+        const puntaje=parseFloat(prompt("Ingrese su puntaje(0-100)"));
+        if(puntaje>=80 && puntaje<=100){
+            alert("Su calificacion es A");
+        }else if(puntaje>=70 && puntaje<=79){
+            alert("Su calificacion es B");
+        }
+        else if(puntaje>=60 && puntaje<=69){
+            alert("Su calificacion es C");
+        }
+        else if(puntaje>=50 && puntaje<=59){
+            alert("Su calificacion es D");
+        }
+        else if(puntaje>=0 && puntaje<=49){
+            alert("Su calificacion es F");
+        }else{
+            alert("El rango de puntajes solo es de 0-100");
+        }
+    </script>
+</body>
+</html>
