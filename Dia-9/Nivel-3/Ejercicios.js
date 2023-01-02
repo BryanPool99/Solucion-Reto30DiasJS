@@ -2281,7 +2281,7 @@ function mostPopulatedCountries(arr,n) {
     console.log('Variance: ',statistics.var()) // 17.5
     console.log('Standard Deviation: ', statistics.std()) // 4.2
     console.log('Variance: ',statistics.var()) // 17.5
-    console.log('Frequency Distribution: ',statistics.freqDist()) # [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
+    console.log('Frequency Distribution: ',statistics.freqDist()) // [(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
 
     console.log(statistics.describe())
     Count: 25
@@ -2319,7 +2319,6 @@ const statistics={
   median:function(){
     const agesSort=statistics.ages.sort((a,b)=>(a-b));
     let idx=Math.floor(agesSort.length/2);
-    console.log(agesSort);
     if (this.count()%2==0) {
       console.log(agesSort[idx],agesSort[idx+1]);
       return (agesSort[idx]+agesSort[idx+1])/2;
@@ -2330,7 +2329,6 @@ const statistics={
     const agesSet=new Set(this.ages);
     const arrayAgesSet=[...agesSet];
     let res={};
-    console.log(arrayAgesSet);
     for (let i = 0; i < arrayAgesSet.length; i++) {
       let age=this.ages[i];
         if(res.hasOwnProperty(age)){
@@ -2354,10 +2352,58 @@ const statistics={
     return (Math.sqrt(this.var())).toFixed(1);
   },
   freqDist:function(){
-    
+    //Una forma de realizarlo
+  /*  let counts={},rpta={}
+    for (const age of this.ages) {
+      if (counts[age] == null) {
+        counts[age] = 1;
+      } else {
+        counts[age] += 1;
+      }
+    }
+    const arrCountAges=Object.entries(counts);
+    console.log(arrCountAges);
+    for (let i = 0; i < arrCountAges.length; i++) {
+      //para hallar la frecuencia es neceario tener la cantidad de cada uno y luego calcualr el procentaje
+      arrCountAges[i][1]=(arrCountAges[i][1]/this.count()*100).toFixed(1);
+    }
+    return arrCountAges.sort((a,b)=>{
+      if (a[1]!==b[1]) {
+        return b[1]-a[1];
+      }
+      return b[0]-a[0];
+    });
+    */
+   //Otra forma:
+    const res=[],frecuencias={},arrLen=this.count();
+    for (const age of this.ages) {
+      if(frecuencias[age]){
+        frecuencias[age]++;
+      }
+      else{
+        frecuencias[age]=1;
+      }
+    }
+    for (const age in frecuencias) {
+      res.push(
+        [(frecuencias[age]/arrLen*100).toFixed(1),age]
+      );
+    }
+    res.sort((a, b) => {
+      if (a[0] !== b[0]) {
+        return b[0] - a[0];
+      }
+      return b[1] - a[1];
+    });
+    return res;
+  },
+  describe:function(){
+    return (
+      `Count: ${this.count()}\nSum: ${this.sum()}\nMin: ${this.min()}\nMax: ${this.max()}\nRage: ${this.range()}\nMean: ${this.mean()}\nMedian: ${this.median()}\nMode: ${JSON.stringify(this.mode())}\nVariance: ${this.var()}\nStandart Desviation: ${this.std()}\nFrequency Distribution: ${JSON.stringify(this.freqDist())}`
+    )
   }
 }
-console.log('Count:', statistics.count());
+/*console.log('Count:', statistics.count());
 console.log('Sum: ', statistics.sum());
 console.log('Min: ', statistics.min());
 console.log('Max: ', statistics.max()) // 38
@@ -2368,3 +2414,5 @@ console.log('Mode: ', statistics.mode()); // {'mode': 26, 'count': 5}
 console.log('Variance: ',statistics.var()); // 17.5
 console.log('Standard Deviation: ', statistics.std()); // 4.2
 console.log('Frequency Distribution: ',statistics.freqDist());//[(20.0, 26), (16.0, 27), (12.0, 32), (8.0, 37), (8.0, 34), (8.0, 33), (8.0, 31), (8.0, 24), (4.0, 38), (4.0, 29), (4.0, 25)]
+*/
+console.log(statistics.describe())
