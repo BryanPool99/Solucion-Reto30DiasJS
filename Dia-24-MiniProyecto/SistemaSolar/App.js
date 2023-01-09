@@ -1,4 +1,3 @@
-console.log("hola");
 //creacion del container principal
 const container=document.createElement("div");
 container.className="container";
@@ -26,7 +25,6 @@ container.appendChild(title);
 //creando div que contenga  el input el select y el boutton
 const box=document.createElement("div");
 box.className="box-input";
-box.style.border="2px solid white";//tmp
 box.style.padding=".5rem";
 box.style.width="75%";
 box.style.display="flex";
@@ -117,7 +115,6 @@ box.appendChild(btn);
 //creando div para info del planeta
 const info=document.createElement("div");
 info.className="info";
-info.style.border="2px solid white";//tmp
 info.style.borderRadius="8px";
 info.style.width="98%";
 info.style.margin="1.5rem";
@@ -126,11 +123,11 @@ info.style.backgroundColor="rgb(57 57 56 / 55%)";
 info.style.display="flex";
 info.style.flexWrap="wrap";
 info.style.alignItems="center";
-info.style.justifyContent="space-around";
+info.style.justifyContent="space-evenly";
 container.appendChild(info);
 //ceando una etiqueta img que sera hijo de div info
 let img=document.createElement("div");
-img.style.border="2px solid blue";
+img.className="img";
 img.style.width="30rem";
 img.style.height="30rem";
 img.style.backgroundImage="url(./Img/tierra.png)";
@@ -140,7 +137,6 @@ info.appendChild(img);
 //creacion de un div donde se encuentre la respuesta
 let description=document.createElement("div");
 description.className="description";
-description.style.border="2px solid red";
 description.style.width="30rem";
 description.style.height="15rem";
 description.style.marginTop="1rem";
@@ -170,6 +166,14 @@ weight.style.justifyContent="center";
 weight.style.fontWeight="bold";
 weight.style.fontSize="25px";
 description.appendChild(weight);
+//responsivo
+if(screen.width<375){
+    img.style.height="17rem";
+    info.style.width="90%";
+}
+else{
+    img.style.width="23rem";
+}
 //envento
 btn.addEventListener("click",()=>{
     console.log("clcik");
@@ -181,8 +185,11 @@ btn.addEventListener("click",()=>{
         frase.textContent="La masa es requerida(digitela en número)";
         frase.style.fontWeight="bold";
         frase.style.fontSize="25px";
+        frase.style.textAlign="center";
+        weight.style.display="none";
     }
     else if(list.value===planets[0].name){
+        weight.style.display="none";
         img.style.display="none";
         description.style.display="flex";
         description.style.marginBottom="1rem";
@@ -190,8 +197,12 @@ btn.addEventListener("click",()=>{
         frase.style.fontWeight="bold";
         frase.style.fontSize="25px";
         frase.textContent="Escoge un planeta de las opciones";
+        frase.style.textAlign="center";
     }else{
+        info.style.width="90%";
         img.style.display="flex";
+        img.style.width="17rem";
+        img.style.height="17rem";
         description.style.display="flex";
         description.style.height="15rem";
         frase.style.margin="1rem";
@@ -200,8 +211,13 @@ btn.addEventListener("click",()=>{
         frase.textContent=list.value;
         for (let i = 1; i < planets.length; i++) {
             if(frase.textContent==planets[i].name){
-                let peso=parseFloat(planets[i].gravity)*parseFloat(inputNum.value)
-                weight.textContent=peso.toFixed(2);
+                let peso=parseFloat(planets[i].gravity)*parseFloat(inputNum.value);
+                let span=document.createElement("span");
+                span.textContent=(planets[i].name).toUpperCase();
+                span.style.fontWeight="bold";
+                frase.innerText="El peso del objeto en el planeta ";
+                frase.appendChild(span);
+                weight.textContent=peso.toFixed(2)+" N.";
                 img.style.backgroundImage=planets[i].img;
             }
         }
