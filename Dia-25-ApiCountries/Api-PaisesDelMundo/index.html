@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización de Datos de los Países del Mundo</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <header>
+        <h1>World Countries Data</h1>
+        <p>Actualmente contamos con <span class="LenCountries">250</span> paises</p>
+    </header>
+    <section>
+        <div class="buttons">
+            <button class="btn-P">Poblacion</button>
+            <button class="btn-L">Idiomas</button>
+        </div>
+        <div><p>Top 10 <span class="SelectText"></span> en el mundo</p></div>
+    </section>
+    <main>
+        <div class="container-PL">
+            <!-- Aca va el div data(esta creando en el js)donde se encuentra la info de la api -->
+            <div class="data">
+                <div class="country">World</div>
+                <div class="grafic">
+                    <div class="porcent"></div>
+                </div>
+                <div class="count"></div>
+            </div>
+            
+        </div>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
