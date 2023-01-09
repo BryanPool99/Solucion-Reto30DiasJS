@@ -1,0 +1,123 @@
+:root{
+    --Orange: #FFA500;
+    --Bg:#F0F0F0;
+    --textColor:#575757;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+header{
+    border: 2px solid black; /*tmp*/
+    width: 100%;
+    background-color: var(--Bg);
+    text-align: center;
+    color: var(--Orange);
+    margin: 2rem;
+}
+header>h1{
+    margin: .5rem;
+}
+header>p{
+    color: #575757;
+}
+section{
+    border: 2px solid rgb(148, 39, 39); /*tmp*/
+    width: 75%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.buttons{
+    border: 2px solid rgb(29, 94, 29); /*tmp*/
+    width: 50%;
+    text-align: center;
+    margin: .5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.btn-P,.btn-L{
+    background-color: var(--Orange);
+    width: 8rem;
+    border: none;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    padding: .5rem;
+    margin: .5rem;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+div>p{
+    color: #575757;
+}
+main{
+    border: 2px solid rgb(61, 39, 148); /*tmp*/
+    background-color: var(--Bg);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: .5rem;
+    padding: .5rem;
+}
+.container-PL{
+    border: 2px solid rgb(146, 148, 39); /*tmp*/
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+}
+.data{
+    border:  2px solid black;/*tmp*/
+    margin: .5rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.country,.count{
+    border:  2px solid rgb(15, 187, 20);/*tmp*/
+    width: 25%;
+    margin: .2rem;
+    justify-content: space-around;
+    align-items: center;
+}
+.grafic{
+    border:  2px solid rgb(15, 187, 20);/*tmp*/
+    width: 50%;
+    margin: .2rem;
+    justify-content: space-around;
+    align-items: center;
+}
+.porcent{
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--Orange);
+}
+@media (max-width: 768px) {
+    .container-PL{
+        width: 99%;
+    }
+    .data{
+        justify-content: space-around;
+    }
+    .count{
+        display: none;
+    }
+    .country,.grafic,.count{
+        width: 45%;
+    }
+}
