@@ -10,8 +10,6 @@ const populationData = async () => {
         const response = await fetch(url);
         const countries = await response.json();
         lenCountries.textContent=countries.length;
-        const totalPopulation=countries.reduce((acc,valA)=>acc+valA.population,0);
-        totalP.textContent=new Intl.NumberFormat().format(totalPopulation);
         const sortPopulationCountries=countries.sort((a,b)=>b.population-a.population);
         const mostTenPopulation=sortPopulationCountries.slice(0,10);
         for (const i in mostTenPopulation) {
@@ -27,7 +25,7 @@ const populationData = async () => {
             let porcent=document.createElement("div");
             porcent.style.padding="1rem";
             porcent.style.backgroundColor="#FFA500";
-            let widthP=(countries[i].population/totalPopulation).toFixed(5)*150+"%";
+            let widthP=(countries[i].population/countries[0].population).toFixed(5)*100+"%";
             porcent.style.width=widthP;
             grafic.appendChild(porcent);
             data.appendChild(grafic);
