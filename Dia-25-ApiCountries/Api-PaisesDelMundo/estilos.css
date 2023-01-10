@@ -1,6 +1,7 @@
 :root{
     --Orange: #FFA500;
     --Bg:#F0F0F0;
+    --border:#D8D8D8;
     --textColor:#575757;
 }
 *{
@@ -13,32 +14,33 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-start;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 header{
-    border: 2px solid black; /*tmp*/
+    box-shadow: 2px 2px 16px -2px var(--border) inset;
     width: 100%;
     background-color: var(--Bg);
     text-align: center;
     color: var(--Orange);
-    margin: 2rem;
+    margin: 0 2rem 2rem;
 }
 header>h1{
     margin: .5rem;
 }
 header>p{
     color: #575757;
+    margin: .5rem;
 }
 section{
-    border: 2px solid rgb(148, 39, 39); /*tmp*/
     width: 75%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    margin: 0 0 1rem 0;
 }
 .buttons{
-    border: 2px solid rgb(29, 94, 29); /*tmp*/
     width: 50%;
     text-align: center;
     margin: .5rem;
@@ -61,12 +63,21 @@ section{
     text-align: center;
     text-transform: uppercase;
     cursor: pointer;
+    transition: all 1s;
+    -webkit-transition: all .5s ;
+    -moz-transition: all 1s;
+    -ms-transition: all 1s;
+    -o-transition: all 1s;
+}
+.btn-L:hover,.btn-P:hover{
+    opacity: 0.7;
+    font-weight: bold;
 }
 div>p{
     color: #575757;
 }
 main{
-    border: 2px solid rgb(61, 39, 148); /*tmp*/
+    box-shadow: 2px 2px 16px -2px var(--border) inset;
     background-color: var(--Bg);
     width: 100%;
     display: flex;
@@ -76,27 +87,24 @@ main{
     padding: .5rem;
 }
 .container-PL{
-    border: 2px solid rgb(146, 148, 39); /*tmp*/
     width: 85%;
     display: flex;
     flex-direction: column;
 }
 .data{
-    border:  2px solid black;/*tmp*/
     margin: .5rem;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
 }
 .country,.count{
-    border:  2px solid rgb(15, 187, 20);/*tmp*/
     width: 25%;
     margin: .2rem;
     justify-content: space-around;
     align-items: center;
+    text-align: center;
 }
 .grafic{
-    border:  2px solid rgb(15, 187, 20);/*tmp*/
     width: 50%;
     margin: .2rem;
     justify-content: space-around;
