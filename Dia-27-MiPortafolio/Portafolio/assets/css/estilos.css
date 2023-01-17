@@ -7,6 +7,7 @@
     --secondary-color: #ff7235;
     --primary-shadow: #DDE8F0;
     --secondary-shadow: #a17a69;
+    --primary-link:#ED2C49;
 }
 /* CSS Resets */
 *{
@@ -27,10 +28,12 @@ body{
 
 nav{
     border: 2px solid rgb(196, 48, 48);/*tmp*/
+    /*
     position: sticky;
     top: 0;
     left: 0;
     z-index: 1;
+    */
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -96,14 +99,20 @@ nav .menu{
 .section-hero{
     border: 2px solid brown;/*tmp*/
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
+    justify-content: space-around;
 }
-.section-hero img{
-    width: 60%;
+.section-hero figure{
+    width: 40rem;
     margin: 1rem;
 }
+.section-hero figure img{
+    width: 100%;
+}
 .section-hero .bio{
-    width: 30%;
+    margin: 2rem;
+    width: 17rem;
     border-radius: 1rem;
     box-shadow: 1px 1px 4px 5px var(--primary-shadow);
     -webkit-box-shadow: 1px 1px 4px 5px var(--primary-shadow);
@@ -152,4 +161,81 @@ nav .menu{
     -moz-border-radius: 10px;
     -ms-border-radius: 10px;
     -o-border-radius: 10px;
+}
+.section-projects{
+    border: 2px solid black;/*tmp*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.section-projects .container-projects{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.card-project{
+    width: 20rem;
+    height: 25rem;
+    border: 2px solid blue;
+    /*tmp*/display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+.card-project img{
+    width: 17rem;
+}
+.card-project h3{
+    margin: .5rem;
+    text-align: center;
+}
+.card-project .used-technologies{
+    border: 2px solid rgb(26, 26, 56);/*tmp*/
+    width: 95%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: .5rem;
+}
+.card-project .links{
+    border: 2px solid rgb(37, 56, 26);/*tmp*/
+    width: 95%;
+    display: flex;
+    justify-content: space-around;
+}
+.card-project .links a{
+    border: 2px solid rgb(33, 74, 9);
+    /*tmp*/padding: .5rem 1rem;
+    text-decoration: none;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    background: var(--primary-link);
+    color: var(--bg-color);
+    font-weight: 400;
+    transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    -webkit-transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    -moz-transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    -ms-transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+    -o-transition: all .5s cubic-bezier(0.455, 0.03, 0.515, 0.955);
+}
+.links a:nth-child(2){
+    background: var(--primary-color);
+    color: var(--bg-color);
+}
+.links a:hover{
+    background: var(--bg-color);
+    color: var(--primary-color);
+    font-weight: 900;
 }
