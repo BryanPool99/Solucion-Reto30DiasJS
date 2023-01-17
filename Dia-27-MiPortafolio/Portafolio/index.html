@@ -201,14 +201,52 @@
         </div>
     </section>
     <!-- Sección Contacto-->
-
+    <section id="contact" class="contact">
+        <h2>Contactame</h2>
+        <div class="container-form">
+            <form action="#">
+                <div class="container-field">
+                    <label for="name">Nombre</label>
+                    <input type="text" id="name" placeholder="Escriba su nombre" required>
+                </div>
+                <div class="container-field">
+                    <label for="email">Correo Electronico</label>
+                    <input type="email" id="email" placeholder="Ingrese su correo electronico" required>
+                </div>
+                <div class="container-field">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea name="mensaje" id="mensaje" placeholder="Ingrese su mensaje" required></textarea>
+                </div>
+                <div class="container-field">
+                    <input type="submit" value="Enviar" id="btn-submit">
+                </div>
+                </form>
+        </div>
+    </section>
     <!-- Sección de redes sociales - Fijado a la derecha -->
-
+    <div class="social">
+        <a href="https://www.linkedin.com/in/bryan-pool-arredondo-ovalle/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+        <a href="https://wa.me/51926425640?text=Me%20interesa%20tu%20trabajo%20como%20frontEnd-Developer" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
+        <a href="https://github.com/BryanPool99" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+    </div>
     <!-- Vuelve al comienzo  -->
-
+    <div class="arrow">
+        <ion-icon name="arrow-up-outline"></ion-icon>
+    </div>
     <!-- Sección Footer  -->
-
+    <footer>
+        <p class="copy">&copy; Copyright 2023</p>
+        <p class="copy"> by </p>
+        <a href="https://github.com/BryanPool99" target="_blank">Bryan Arredondo</a >
+        <div>
+            <a href="https://www.linkedin.com/in/bryan-pool-arredondo-ovalle/" target="_blank"><ion-icon name="logo-linkedin"></ion-icon></a>
+            <a href="https://wa.me/51926425640?text=Me%20interesa%20tu%20trabajo%20como%20frontEnd-Developer" target="_blank"><ion-icon name="logo-whatsapp"></ion-icon></a>
+            <a href="https://github.com/BryanPool99" target="_blank"><ion-icon name="logo-github"></ion-icon></a>
+        </div>
+  </footer>
     <!-- Website scripts -->
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
 </html>
