@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30 Días de JavaScript: Tabla de Posiciones</title>
+    <link rel="stylesheet" href="assets/css/estilos.css">
+    <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+</head>
+<body>
+    <header>
+        <h1>30 dias de JS:LeaderBoard</h1>
+    </header>
+    <section class="fields">
+        <input type="text" name="Name" id="name" placeholder="Name">
+        <input type="text" name="Lastname" id="lastname" placeholder="Lastname">
+        <input type="text" name="country" id="country" placeholder="country">
+        <input type="number" name="Score" id="score" placeholder="Player Score">
+        <input type="button" value="Add Player" id="btnAdd">
+    </section>
+    <section class="error">All fields are requeried</section>
+    <section class="players">
+        <div class="row">
+            <div class="container-Full_Date">
+                <div class="fullName">Bryan Arredondo</div>
+                <div class="date">JAN 20, 2023, 11:53 AM</div>
+            </div>
+            <div class="container-country">
+                Peru
+            </div>
+            <div class="container-score">
+                80
+            </div>
+            <div class="container-btns">
+                <button class="btnDelete"><ion-icon name="trash-outline"></ion-icon></button>
+                <button class="btnMore">+5</button>
+                <button class="btnLess">-5</button>
+            </div>
+        </div>
+    </section>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="assets/js/app.js"></script>
+</body>
+</html>
