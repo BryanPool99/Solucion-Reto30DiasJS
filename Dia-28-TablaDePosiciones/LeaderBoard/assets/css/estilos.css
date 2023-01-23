@@ -141,3 +141,27 @@ button:nth-child(1):hover{
 button:hover{
     background-color: var(--hoverButton);
 }
+@media (max-width: 910px) {
+    .fields{
+        flex-direction: column;
+    }
+    .row{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .container-country,.container-score{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .container-Full_Date, .container-country, .container-score{
+        width: 30%;
+    }
+    .container-btns{
+        width: 90%;
+        margin: 1rem;
+    }
+    .container-btns button{
+        margin: .5rem;
+    }
+}
