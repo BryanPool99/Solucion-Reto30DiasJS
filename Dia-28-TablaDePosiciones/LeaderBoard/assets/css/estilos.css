@@ -5,7 +5,8 @@
     --colorNow:#958E99;
     --colorIconDelete:#EF695D;
     --colorError:#EA3425;
-    --hoverButton:#00C9A7;
+    --hoverButton:#ACBED8;
+    --hoverDeleteBtn:#DB5461;
 }
 *{
     margin: 0;
@@ -20,13 +21,13 @@ body{
     justify-content: center;
 }
 header{
-    border: 2px solid black;/*tmp*/
+   
     text-align: center;
     margin: 1rem;
     padding: 1rem;
 }
 .fields{
-    border: 2px solid rgb(129, 39, 39);/*tmp*/
+    
     width: 90vw;
     display: flex;
     flex-wrap: wrap;
@@ -75,7 +76,6 @@ input[type="button"]:hover{
     transition: opacity .9s cubic-bezier(0.075, 0.82, 0.165, 1);
 }
 .players{
-    border: 2px solid blue;/*tmp*/
     width: 90vw;
     display: flex;
     flex-direction: column;
@@ -83,8 +83,7 @@ input[type="button"]:hover{
 }
 .row{
     width: 100%;
-    border: 2px solid rgb(255, 183, 0);
-    /*tmp*/display: flex;
+    display: flex;
     align-items: center;
     text-transform: uppercase;
     padding: .5rem;
@@ -96,7 +95,6 @@ input[type="button"]:hover{
     width: 25%;
 }
 .container-Full_Date{
-    border: 2px solid rgb(44, 173, 99);/*tmp*/
     display: flex;
     flex-direction: column;
     gap: .5rem;
@@ -104,14 +102,7 @@ input[type="button"]:hover{
 .date{
     color: var(--colorNow);
 }
-.container-country{
-    border: 2px solid rgb(173, 134, 44);/*tmp*/
-}
-.container-score{
-    border: 2px solid blueviolet;/*tmp*/
-}
 .container-btns{
-    border: 2px solid rgb(81, 61, 100);/*tmp*/
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
@@ -139,7 +130,14 @@ button{
 }
 button:nth-child(1){
     color: var(--colorIconDelete);
+    background-image: url(../img/trash-outline.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+button:nth-child(1):hover{
+    background-color: var(--hoverDeleteBtn);
 }
 button:hover{
-    background: var(--hoverButton);
+    background-color: var(--hoverButton);
 }
