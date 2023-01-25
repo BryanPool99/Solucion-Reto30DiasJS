@@ -40,3 +40,13 @@ span{
         opacity: 1;
     }
 }
+@media (max-width: 740px) {
+    p{
+        font-size: 3rem;
+    }
+}
+@media (max-width: 376px) {
+    p{
+        font-size: 2rem;
+    }
+}
