@@ -1,6 +1,5 @@
-console.log("hola mundo");
 //variables
-const text="Reto # 29 de 30 dias de JavaScript : Animacion de caracteres.";
+const text="Reto # 29 de 30 dias de JavaScript: Animacion de caracteres.";
 const arrayText=text.split(" ");
 const arrayFonts=[
     'Roboto','Unbounded','Montserrat','Ubuntu','Anton','Lobster'
@@ -20,29 +19,19 @@ function FontRnd() {
 //estrucutra html
 const main=document.createElement("main");
 document.body.appendChild(main);
-const containerSpans=document.createElement("h1");
-main.appendChild(containerSpans);
 arrayText.forEach(e => {
-    let span=document.createElement("span");
-    span.innerHTML=e+space;
-    containerSpans.appendChild(span);
+    let parrafo=document.createElement("p");
+    main.appendChild(parrafo)
+    for (let i = 0; i < e.length; i++) {
+        let span=document.createElement("span");
+        span.innerHTML=e[i];
+        parrafo.appendChild(span);
+    }
 });
 setInterval(()=>{
     main.style.backgroundColor=rgbColor();
-    containerSpans.style.fontFamily=FontRnd();
+    main.style.fontFamily=FontRnd();
     document.querySelectorAll("span").forEach((e)=>{
-        e.style.color=rgbColor();
+        e.style.color=rgbColor()
     })
 },2000)
-/*
-setInterval(()=>{
-    tecnologies.forEach((e)=>{
-        e.style.color=rgbColor();
-        e.style.fontWeight="600";
-    })
-    cardsProjects.forEach((e)=>{
-    e.style.border="5px solid transparent";
-    e.style.backgroundImage=`linear-gradient(white, white),linear-gradient(315deg,${rgbColor()},50%,${rgbColor()})`;
-})
-},1000)
-*/
