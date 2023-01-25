@@ -11,18 +11,17 @@ body{
 }
 main{
     width: 90vw;
-    border: 2px solid black;/*tmp*/
     padding: 1rem;
 }
-h1{
+p{
     text-transform: uppercase;
     text-align: left;
     font-size: 5rem;
+    display: inline-flex;
+    margin: 1rem;
 }
 span{
     display: inline-flex;
-    margin: .2rem;
-    padding: .1rem;
     animation: 1.1s infinite  alternate Opacity;
     -webkit-animation: 1.1s infinite  alternate Opacity;
 }
