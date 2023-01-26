@@ -1,0 +1,104 @@
+:root{
+    --invalidInputColor:#FFAB16;
+    --invalidInputBorder:#FD6E64;
+    --validInputBorder:#21BF73;
+    --labelColor:#333333;
+    --inputColor:#7B7B7B;
+    --bgBtnSubmit:#444444;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+h1{
+    text-align: center;
+    margin: 1rem;
+    font-size: 29px;
+}
+form{
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.container-fields{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.container-fields label,.container-fields input,.container-fields button{
+    margin: .2rem;
+}
+.container-fields label{
+    color: var(--labelColor);
+    font-weight: 700;
+}
+.container-fields input{
+    height: 1rem;
+    padding: 1rem;
+    font-weight: 700;
+}
+input.valid{
+    border: 2px solid var(--validInputBorder);
+    transition: border .2s ease-in-out;
+    -webkit-transition: border .2s ease-in-out;
+    -moz-transition: border .2s ease-in-out;
+    -ms-transition: border .2s ease-in-out;
+    -o-transition: border .2s ease-in-out;
+}
+.container-fields p{
+    opacity: 0;
+    font-weight: 700;
+    font-size: 12px;
+    text-align: center;
+    color: var(--invalidInputColor);
+}
+#error-name.active,#error-lastname.active,#error-email.active,#error-password.active,#error-phone.active,#error-bio.active{
+    opacity: 1;
+    transition: opacity .5s ease-in-out;
+}
+.container-fields button{
+    border: none;
+    cursor: pointer;
+    width: 50%;
+    height: 2rem;
+    border-radius: .2rem;
+    -webkit-border-radius: .2rem;
+    -moz-border-radius: .2rem;
+    -ms-border-radius: .2rem;
+    -o-border-radius: .2rem;
+    background-color: var(--bgBtnSubmit);
+    color: white;
+    transition: background-color .5s ease-in-out;
+    -webkit-transition: background-color .5s ease-in-out;
+    -moz-transition: background-color .5s ease-in-out;
+    -ms-transition: background-color .5s ease-in-out;
+    -o-transition: background-color .5s ease-in-out;
+}
+.container-fields button:hover{
+    background-color: var(--validInputBorder);
+}
+@media (min-width: 600px) {
+    body{
+        display: flex;
+        justify-content: center;
+    }
+    main{
+        width: 60%;
+    }
+    .container-fields p{
+        margin: .5rem;
+        font-size: 16px;
+    }
+    .container-fields button{
+        width: 30%;
+    }
+}
