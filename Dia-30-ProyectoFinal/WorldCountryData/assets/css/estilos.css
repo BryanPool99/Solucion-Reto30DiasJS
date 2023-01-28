@@ -27,6 +27,7 @@ main{
 main>div.row{
     align-items: center;
     justify-content: space-between;
+    margin: 0 0 2rem;
 }
 .container-input{
     border-radius: .5rem;
@@ -70,8 +71,21 @@ main>div.row{
 }
 .section .card{
     width: 18rem;
+    height: 20rem;
     background: var(--DarkBlue);
+    cursor: pointer;
 }
 .card-img-top{
     height: 10rem;
+}
+.btnBack button{
+    background: var(--DarkBlue);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+@media (max-width: 576px) {
+    main{
+        padding: 2rem 1rem;
+    }
 }
