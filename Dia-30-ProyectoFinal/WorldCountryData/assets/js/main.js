@@ -10,7 +10,7 @@ const fetchData = async () => {
       const res = await fetch(url);
       const data = await res.json();
       const dataValid = data.filter(country => country.region !== "Antarctic" && country.borders!==undefined);
-      console.log(dataValid);
+      //console.log(dataValid);
       cards(dataValid);
       searchCountries(dataValid); // funcion de buscar paises con el input
       filtroRegion(dataValid); // activa filtros region
