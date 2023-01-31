@@ -10,6 +10,6 @@ const searchCountries=(data)=>{
             }
         })
         cards(searchCountry);
+        toogleTheme();
     })
 }
-
